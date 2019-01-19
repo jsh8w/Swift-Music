@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (4.8.1)
   - Sourcery (0.15.0)
   - ViewAnimator (2.2.2)
 
 DEPENDENCIES:
+  - Alamofire
   - Sourcery
   - ViewAnimator
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Sourcery
     - ViewAnimator
 
 SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
   ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
 
-PODFILE CHECKSUM: 2da6a77c8228ad96e9097591981e17fba54303c5
+PODFILE CHECKSUM: 3cd8231feba6eae06eaef0c8a5505a60fcc8e52e
 
 COCOAPODS: 1.5.3

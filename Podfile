@@ -7,6 +7,7 @@ target 'Swift-Weather' do
 
   pod 'Sourcery'
   pod 'ViewAnimator'
+  pod 'Alamofire'
 
   target 'Swift-WeatherTests' do
     inherit! :search_paths

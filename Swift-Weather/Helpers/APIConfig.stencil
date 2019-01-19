@@ -1,0 +1,16 @@
+//
+//  APIConfig.swift
+//  Swift-Music
+//
+//  Created by James Shaw on 11/09/2018.
+//  Copyright © 2019 James Shaw. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+struct APIConfig {
+    static var apiKey: String {
+        return "{{ argument.lastfm_api_key }}"
+    }
+}
