@@ -1,0 +1,20 @@
+PODS:
+  - Sourcery (0.15.0)
+  - ViewAnimator (2.2.2)
+
+DEPENDENCIES:
+  - Sourcery
+  - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Sourcery
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
+  ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
+
+PODFILE CHECKSUM: 2da6a77c8228ad96e9097591981e17fba54303c5
+
+COCOAPODS: 1.5.3
