@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
-target 'Swift-Weather' do
+target 'Swift-Music' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -9,7 +9,7 @@ target 'Swift-Weather' do
   pod 'ViewAnimator'
   pod 'Alamofire'
 
-  target 'Swift-WeatherTests' do
+  target 'Swift-MusicTests' do
     inherit! :search_paths
   end
 end
