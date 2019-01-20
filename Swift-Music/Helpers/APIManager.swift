@@ -25,20 +25,19 @@ class APIManager: NSObject {
     let baseUrl = "http://ws.audioscrobbler.com/2.0/?method="
     let apiKey = "&api_key=\(APIConfig.apiKey)&format=json"
 
-    func get(endpoint: Endpoint) {
+    func get(endpoint: Endpoint, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let url = "\(self.baseUrl)\(endpoint.method)\(self.apiKey)"
 
         Alamofire.request(url, method: .get)
             .responseJSON { response in
-                // handle JSON
+                if let json = response.result.value as? [String: Any] {
+                    completion(json, nil)
+                    return
+                }
             }
             .responseString { response in
-                if let error = response.result.error {
-                    print(error)
-                }
-                if let value = response.result.value {
-                    print(value)
-                }
+                completion(nil, response.result.error)
+                return
         }
     }
 }

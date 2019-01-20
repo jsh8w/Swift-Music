@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1007337A21F4EC220096DD7E /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1007337921F4EC220096DD7E /* Artist.swift */; };
 		10998B0621F382670044DBAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10998B0521F382670044DBAA /* AppDelegate.swift */; };
 		10998B0821F382670044DBAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10998B0721F382670044DBAA /* ViewController.swift */; };
 		10998B0B21F382670044DBAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10998B0921F382670044DBAA /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		093DADF326BCE642C02CD0A2 /* Pods-Swift-MusicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift-MusicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift-MusicTests/Pods-Swift-MusicTests.release.xcconfig"; sourceTree = "<group>"; };
+		1007337921F4EC220096DD7E /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		10998B0221F382670044DBAA /* Swift-Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10998B0521F382670044DBAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10998B0721F382670044DBAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		106E2A5321F3831500B50A56 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1007337921F4EC220096DD7E /* Artist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1007337A21F4EC220096DD7E /* Artist.swift in Sources */,
 				10D776A921F3901F0075D69A /* APIManager.swift in Sources */,
 				10D776B021F39AC30075D69A /* APIConfig.generated.swift in Sources */,
 				10B9D71521F39F9100FB494A /* ChartsManager.swift in Sources */,
