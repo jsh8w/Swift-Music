@@ -10,15 +10,22 @@ import UIKit
 
 class Artist: NSObject {
     var name: String!
-    var playCount: Int!
-    var listeners: Int!
+    var playCount: Int = 0
+    var listeners: Int = 0
     var url: String!
     var imageUrl: String?
 
     init(json: [String: Any]) {
         self.name = json["name"] as? String ?? ""
-        self.playCount = json["playcount"] as? Int ?? 0
-        self.listeners = json["listeners"] as? Int ?? 0
+
+        if let playCount = json["playcount"] as? String {
+            self.playCount = Int(playCount) ?? 0
+        }
+
+        if let listeners = json["listeners"] as? String {
+            self.listeners = Int(listeners) ?? 0
+        }
+        
         self.url = json["url"] as? String ?? ""
 
         guard let imageObjects = json["image"] as? [[String: String]] else { return }

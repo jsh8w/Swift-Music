@@ -18,20 +18,24 @@ class ChartsManager: NSObject {
                 return
             }
 
-            guard let artistsJSON = json["artists"] as? [String: Any],
-                let artistsArrayJSON = artistsJSON["artist"] as? [[String: Any]] else {
-                    completion([], error)
-                    return
-            }
-
-            var artists: [Artist] = []
-
-            for artistJSON in artistsArrayJSON {
-                let artist = Artist(json: artistJSON)
-                artists.append(artist)
-            }
-
+            let artists = self.parseTopArtists(json: json)
             completion(artists, nil)
         }
+    }
+
+    func parseTopArtists(json: [String: Any]) -> [Artist] {
+        guard let artistsJSON = json["artists"] as? [String: Any],
+            let artistsArrayJSON = artistsJSON["artist"] as? [[String: Any]] else {
+                return []
+        }
+
+        var artists: [Artist] = []
+
+        for artistJSON in artistsArrayJSON {
+            let artist = Artist(json: artistJSON)
+            artists.append(artist)
+        }
+
+        return artists
     }
 }
