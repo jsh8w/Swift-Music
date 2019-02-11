@@ -33,11 +33,10 @@ class APIManager: NSObject {
                 if let json = response.result.value as? [String: Any] {
                     completion(json, nil)
                     return
+                } else {
+                    completion(nil, response.result.error)
+                    return
                 }
-            }
-            .responseString { response in
-                completion(nil, response.result.error)
-                return
         }
     }
 }
