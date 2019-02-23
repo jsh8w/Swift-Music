@@ -14,6 +14,8 @@ class Artist: NSObject {
     var listeners: Int = 0
     var url: String!
     var imageUrl: String?
+    var image: UIImage?
+    var backgroundColor: UIColor?
 
     init(json: [String: Any]) {
         self.name = json["name"] as? String ?? ""

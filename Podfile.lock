@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.8.1)
   - Sourcery (0.15.0)
+  - UIImageColors (2.0.1)
   - ViewAnimator (2.2.2)
 
 DEPENDENCIES:
   - Alamofire
   - Sourcery
+  - UIImageColors
   - ViewAnimator
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Sourcery
+    - UIImageColors
     - ViewAnimator
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
+  UIImageColors: c83669aff7ceb55a3b3f2c398f3b5c14632a267b
   ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
 
-PODFILE CHECKSUM: 2b5ea3bd2343a74daa78cb1e6eea1d487672f341
+PODFILE CHECKSUM: 8eacac66377b464ce44cfa0e6b6711260cf4474e
 
 COCOAPODS: 1.5.3

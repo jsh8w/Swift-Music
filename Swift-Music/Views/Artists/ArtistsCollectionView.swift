@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import UIImageColors
 
 class ArtistsCollectionView: UICollectionView {
 
@@ -25,6 +27,7 @@ class ArtistsCollectionView: UICollectionView {
     private func commonInit() {
         self.delegate = self
         self.dataSource = self
+        self.prefetchDataSource = self
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
     }
@@ -35,7 +38,7 @@ class ArtistsCollectionView: UICollectionView {
     }
 }
 
-extension ArtistsCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ArtistsCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data.count
     }
@@ -43,7 +46,34 @@ extension ArtistsCollectionView: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistCell", for: indexPath) as! ArtistCollectionViewCell
         let artist = self.data[indexPath.row]
-        cell.setup(artist: artist)
+        cell.label.text = artist.name
+        cell.imageView.image = nil
+        cell.roundedView.backgroundColor = .white
+
+        ChartsManager.shared.downloadImage(artist: artist) { (updatedArtist) in
+            self.data[indexPath.row] = updatedArtist
+            cell.imageView.image = updatedArtist.image
+            cell.roundedView.backgroundColor = updatedArtist.backgroundColor
+        }
+
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            let artist = self.data[indexPath.row]
+            ChartsManager.shared.downloadImage(artist: artist) { (updatedArtist) in
+                self.data[indexPath.row] = updatedArtist
+            }
+        }
+    }
+}
+
+extension ArtistsCollectionView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let collectionViewWidth = (collectionView.bounds.width / 2.0) - 10.0
+        let collectionViewHeight = collectionViewWidth * 1.5
+        return CGSize(width: collectionViewWidth, height: collectionViewHeight)
     }
 }

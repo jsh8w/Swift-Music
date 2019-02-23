@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ChartsManager: NSObject {
     static let shared = ChartsManager()
@@ -37,5 +38,29 @@ class ChartsManager: NSObject {
         }
 
         return artists
+    }
+
+    func downloadImage(artist: Artist, completion: @escaping (Artist) -> Void) {
+        guard artist.backgroundColor == nil || artist.image == nil else {
+            completion(artist)
+            return
+        }
+
+        guard let urlString = artist.imageUrl, let url = URL(string: urlString) else {
+            completion(artist)
+            return
+        }
+
+        Alamofire.request(url, method: .get)
+            .responseData { response in
+                guard let data = response.data else { return }
+                guard let image = UIImage(data: data) else { return }
+
+                image.getColors(quality: .lowest, { (colors) in
+                    artist.backgroundColor = colors.background
+                    artist.image = image
+                    completion(artist)
+                })
+        }
     }
 }

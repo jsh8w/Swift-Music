@@ -8,6 +8,7 @@ target 'Swift-Music' do
   pod 'Sourcery'
   pod 'ViewAnimator'
   pod 'Alamofire'
+  pod 'UIImageColors'
 
   target 'Swift-MusicTests' do
     inherit! :search_paths
