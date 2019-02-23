@@ -12,6 +12,21 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.setupUI()
+    }
+
+    private func setupUI() {
+        self.tabBar.barTintColor = .clear
+        self.tabBar.tintColor = .white
+
+        guard let items = self.tabBar.items else { return }
+        let uploadItem = items.first!
+        uploadItem.image = UIImage(named: "TabUpload")
+        uploadItem.selectedImage = UIImage(named: "TabUploadSelected")
+        uploadItem.title = "Artists"
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12.0, weight: .regular)]
+        uploadItem.setTitleTextAttributes(attributes, for: .normal)
     }
 }
 

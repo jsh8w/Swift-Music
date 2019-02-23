@@ -21,5 +21,9 @@ class ArtistCollectionViewCell: UICollectionViewCell {
         self.roundedView.layer.masksToBounds = true
         self.roundedView.layer.cornerRadius = 12.0
         self.roundedView.clipsToBounds = true
+        self.roundedView.layer.shadowColor = UIColor.black.cgColor
+        self.roundedView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.roundedView.layer.shadowOpacity = 0.2
+        self.roundedView.layer.shadowRadius = 4.0
     }
 }

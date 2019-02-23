@@ -12,6 +12,7 @@ import ViewAnimator
 class ArtistsViewController: BaseViewController {
 
     @IBOutlet weak var artistsCollectionView: ArtistsCollectionView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +27,24 @@ class ArtistsViewController: BaseViewController {
     }
 
     private func setupUI() {
-        
+        self.title = "Popular"
+        self.spinner.startAnimating()
     }
 
     private func updateData() {
+        self.spinner.startAnimating()
+        self.artistsCollectionView.visibleCells.forEach { $0.alpha = 0.0 }
         ChartsManager.shared.topArtists { (artists, error) in
             DispatchQueue.main.async {
                 guard error == nil else {
+                    self.spinner.stopAnimating()
                     return
                 }
 
                 self.artistsCollectionView.setData(data: artists)
-                let fromAnimation = AnimationType.from(direction: .bottom, offset: 50.0)
-                let zoomAnimation = AnimationType.zoom(scale: 0.2)
-                UIView.animate(views: self.artistsCollectionView.visibleCells,
-                               animations: [fromAnimation, zoomAnimation],
-                               duration: 0.25)
+                let fromAnimation = AnimationType.from(direction: .bottom, offset: 150.0)
+                self.artistsCollectionView.animate(animations: [fromAnimation], duration: 0.4)
+                self.spinner.stopAnimating()
             }
         }
     }

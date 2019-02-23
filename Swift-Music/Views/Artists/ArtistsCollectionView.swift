@@ -30,6 +30,7 @@ class ArtistsCollectionView: UICollectionView {
         self.prefetchDataSource = self
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
+        self.backgroundColor = UIColor.appNavy
     }
 
     func setData(data: [Artist]) {

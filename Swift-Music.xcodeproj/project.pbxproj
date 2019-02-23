@@ -19,6 +19,7 @@
 		10AD5F292212180C0032C123 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AD5F282212180C0032C123 /* TabBarController.swift */; };
 		10AD5F2B22121A940032C123 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AD5F2A22121A940032C123 /* BaseViewController.swift */; };
 		10B9D71521F39F9100FB494A /* ChartsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B9D71421F39F9100FB494A /* ChartsManager.swift */; };
+		10D58FD42221ED8F00B3A4D2 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D58FD32221ED8F00B3A4D2 /* ColorExtensions.swift */; };
 		10D776A921F3901F0075D69A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D776A821F3901F0075D69A /* APIManager.swift */; };
 		10D776AD21F397E80075D69A /* APIConfig.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 10D776AC21F397E80075D69A /* APIConfig.stencil */; };
 		10D776B021F39AC30075D69A /* APIConfig.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D776AF21F39AC30075D69A /* APIConfig.generated.swift */; };
@@ -56,6 +57,7 @@
 		10AD5F282212180C0032C123 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		10AD5F2A22121A940032C123 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		10B9D71421F39F9100FB494A /* ChartsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsManager.swift; sourceTree = "<group>"; };
+		10D58FD32221ED8F00B3A4D2 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		10D776A821F3901F0075D69A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		10D776AC21F397E80075D69A /* APIConfig.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = APIConfig.stencil; sourceTree = "<group>"; };
 		10D776AF21F39AC30075D69A /* APIConfig.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfig.generated.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				106E2A5321F3831500B50A56 /* Models */,
 				106E2A5421F3831F00B50A56 /* Views */,
 				106E2A5521F3833800B50A56 /* Controllers */,
+				10D58FD22221ED7700B3A4D2 /* Extensions */,
 				106E2A5621F3835100B50A56 /* Helpers */,
 				106E2A5721F3836100B50A56 /* Storyboards */,
 				1007337B21F5100A0096DD7E /* Supporting Files */,
@@ -218,6 +221,14 @@
 				10AD5F2A22121A940032C123 /* BaseViewController.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		10D58FD22221ED7700B3A4D2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				10D58FD32221ED8F00B3A4D2 /* ColorExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		10FF147A2210D3F1009D689A /* Artists */ = {
@@ -479,6 +490,7 @@
 				10998B0821F382670044DBAA /* ArtistsViewController.swift in Sources */,
 				10998B0621F382670044DBAA /* AppDelegate.swift in Sources */,
 				10FF14792210D3CF009D689A /* ArtistsCollectionView.swift in Sources */,
+				10D58FD42221ED8F00B3A4D2 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

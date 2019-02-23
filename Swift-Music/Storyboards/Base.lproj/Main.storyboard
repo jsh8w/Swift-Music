@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5ol-Kx-G2Z" customClass="ArtistsCollectionView" customModule="Swift_Music" customModuleProvider="target">
-                                <rect key="frame" x="20" y="125.5" width="335" height="492.5"/>
+                                <rect key="frame" x="20" y="94" width="335" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M4m-8K-Jf8">
                                     <size key="itemSize" width="60" height="60"/>
@@ -77,20 +77,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvu-1x-Y7z">
-                                <rect key="frame" x="20" y="84" width="59" height="21.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vEr-r6-5pm">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5ol-Kx-G2Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="0lZ-sg-dCm"/>
-                            <constraint firstItem="uvu-1x-Y7z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BoS-g4-GOt"/>
+                            <constraint firstItem="vEr-r6-5pm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NxO-LH-Zs8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5ol-Kx-G2Z" secondAttribute="bottom" id="OmE-bN-wpJ"/>
-                            <constraint firstItem="5ol-Kx-G2Z" firstAttribute="top" secondItem="uvu-1x-Y7z" secondAttribute="bottom" constant="20" id="Yos-63-EQD"/>
-                            <constraint firstItem="uvu-1x-Y7z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="qOt-GY-8wW"/>
+                            <constraint firstItem="vEr-r6-5pm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WYw-Jd-hqI"/>
+                            <constraint firstItem="5ol-Kx-G2Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="dvi-TR-qQv"/>
                             <constraint firstItem="5ol-Kx-G2Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vqf-8T-XyQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -98,6 +95,7 @@
                     <navigationItem key="navigationItem" id="BFb-X1-Ex6"/>
                     <connections>
                         <outlet property="artistsCollectionView" destination="5ol-Kx-G2Z" id="SnQ-5i-50B"/>
+                        <outlet property="spinner" destination="vEr-r6-5pm" id="d71-K4-rXO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

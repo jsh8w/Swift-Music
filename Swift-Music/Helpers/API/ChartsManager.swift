@@ -57,7 +57,7 @@ class ChartsManager: NSObject {
                 guard let image = UIImage(data: data) else { return }
 
                 image.getColors(quality: .lowest, { (colors) in
-                    artist.backgroundColor = colors.background
+                    artist.backgroundColor = colors.primary
                     artist.image = image
                     completion(artist)
                 })
