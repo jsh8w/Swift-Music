@@ -10,9 +10,14 @@ import UIKit
 import Alamofire
 import UIImageColors
 
+protocol ArtistsCollectionViewDelegate {
+    func didSelect(artist: Artist)
+}
+
 class ArtistsCollectionView: UICollectionView {
 
     var data:[Artist] = []
+    var navigationDelegate: ArtistsCollectionViewDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -49,7 +54,7 @@ extension ArtistsCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         let artist = self.data[indexPath.row]
         cell.label.text = artist.name
         cell.imageView.image = nil
-        cell.roundedView.backgroundColor = .white
+        cell.roundedView.backgroundColor = .clear
 
         ChartsManager.shared.downloadImage(artist: artist) { (updatedArtist) in
             self.data[indexPath.row] = updatedArtist
@@ -67,6 +72,11 @@ extension ArtistsCollectionView: UICollectionViewDelegate, UICollectionViewDataS
                 self.data[indexPath.row] = updatedArtist
             }
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let artist = self.data[indexPath.row]
+        self.navigationDelegate?.didSelect(artist: artist)
     }
 }
 

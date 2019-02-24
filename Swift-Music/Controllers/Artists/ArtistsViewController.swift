@@ -27,6 +27,7 @@ class ArtistsViewController: BaseViewController {
     }
 
     private func setupUI() {
+        self.artistsCollectionView.navigationDelegate = self
         self.title = "Popular"
         self.spinner.startAnimating()
     }
@@ -47,6 +48,13 @@ class ArtistsViewController: BaseViewController {
                 self.spinner.stopAnimating()
             }
         }
+    }
+}
+
+extension ArtistsViewController: ArtistsCollectionViewDelegate {
+    func didSelect(artist: Artist) {
+        let vc = ArtistViewController.instantiateFromStoryboard(artist: artist)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

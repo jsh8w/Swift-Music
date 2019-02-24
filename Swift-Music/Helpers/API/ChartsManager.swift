@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import UIImageColors
 
 class ChartsManager: NSObject {
     static let shared = ChartsManager()
@@ -19,8 +20,26 @@ class ChartsManager: NSObject {
                 return
             }
 
-            let artists = self.parseTopArtists(json: json)
-            completion(artists, nil)
+            var artists = self.parseTopArtists(json: json)
+
+            guard artists.count >= 6 else {
+                completion(artists, nil)
+                return
+            }
+
+            let group = DispatchGroup()
+            for index in 0...5 {
+                let artist = artists[index]
+                group.enter()
+                self.downloadImage(artist: artist, completion: { (newArtist) in
+                    artists[index] = newArtist
+                    group.leave()
+                })
+            }
+
+            group.notify(queue: .main, execute: {
+                completion(artists, nil)
+            })
         }
     }
 
@@ -57,10 +76,30 @@ class ChartsManager: NSObject {
                 guard let image = UIImage(data: data) else { return }
 
                 image.getColors(quality: .lowest, { (colors) in
-                    artist.backgroundColor = colors.primary
+                    artist.backgroundColor = self.getColor(colors: colors)
                     artist.image = image
                     completion(artist)
                 })
         }
+    }
+
+    private func getColor(colors: UIImageColors) -> UIColor {
+        if !colors.primary.isLight {
+            return colors.primary
+        }
+
+        if !colors.background.isLight {
+            return colors.background
+        }
+
+        if !colors.secondary.isLight {
+            return colors.secondary
+        }
+
+        if !colors.detail.isLight {
+            return colors.detail
+        }
+
+        return UIColor.darkGray
     }
 }

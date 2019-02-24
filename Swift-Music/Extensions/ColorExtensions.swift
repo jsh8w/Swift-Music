@@ -10,5 +10,11 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    static let appNavy = UIColor(red: 22/255, green:21/255, blue:28/255, alpha: 1) 
+    static let appNavy = UIColor(red: 22/255, green:21/255, blue:28/255, alpha: 1)
+
+    var isLight: Bool {
+        var white: CGFloat = 0
+        getWhite(&white, alpha: nil)
+        return white > 0.5
+    }
 }
